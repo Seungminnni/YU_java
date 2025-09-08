@@ -11,35 +11,52 @@ YU_java/
 │   ├── Example01.java
 │   ├── Datatype01.java
 │   ├── Datatype02.java
-│   └── Datatype03.java
+│   ├── Datatype03.java
+│   └── Datatype04.java
+├── Homework_01/
+│   └── hw1.java
 └── README.md
 ```
 
 ## 파일 설명
 
-### Hello.java
+### Practice_01 패키지
+
+#### Hello.java
 - 기본적인 Java 프로그램 구조
 - 변수 선언과 출력 예제
 
-### Example01.java
+#### Example01.java
 - 상수와 변수의 차이를 보여주는 예제
 - `final` 키워드를 사용한 상수 선언
 - 변수 값 변경의 예시
 
-### Datatype01.java
+#### Datatype01.java
 - Java 기본 데이터 타입들을 보여주는 예제
 - `int`, `short`, `byte`, `long` 데이터 타입 사용
 - 각 데이터 타입의 값 출력 예시
 
-### Datatype02.java
+#### Datatype02.java
 - Java 실수형 데이터 타입들을 보여주는 예제
 - `float`와 `double` 데이터 타입 사용
 - 실수 값 출력 예시
 
-### Datatype03.java
+#### Datatype03.java
 - Java 문자형 데이터 타입을 보여주는 예제
 - `char` 데이터 타입 사용
 - 문자 값 출력 예시
+
+#### Datatype04.java
+- Java 문자열 데이터 타입을 보여주는 예제
+- `String` 데이터 타입 사용
+- 문자열 연결 연산자 예시
+
+### Homework_01 패키지
+
+#### hw1.java
+- Java 데이터 타입 종합 실습
+- `String`, `int`, `float`, `char`, `boolean` 데이터 타입 모두 사용
+- 개인 정보 출력 예제
 
 ## 학습 내용
 
@@ -47,10 +64,13 @@ YU_java/
 - Java 기본 데이터 타입 (`int`, `short`, `byte`, `long`)
 - Java 실수형 데이터 타입 (`float`, `double`)
 - Java 문자형 데이터 타입 (`char`)
+- Java 문자열 데이터 타입 (`String`)
+- Java 논리형 데이터 타입 (`boolean`)
 - 변수와 상수의 차이점
 - `final` 키워드 사용법
 - 패키지 사용법
 - `System.out.println()`을 사용한 출력
+- 문자열 연결 연산자 (`+`)
 
 ## 요구사항
 
