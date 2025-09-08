@@ -6,9 +6,11 @@
 
 ```
 YU_java/
-├── 01/
-    ├── Hello.java
-    └── Example01.java
+├── Practice_01/
+│   ├── Hello.java
+│   ├── Example01.java
+│   └── Datatype01.java
+└── README.md
 ```
 
 ## 파일 설명
@@ -22,13 +24,18 @@ YU_java/
 - `final` 키워드를 사용한 상수 선언
 - 변수 값 변경의 예시
 
-
+### Datatype01.java
+- Java 기본 데이터 타입들을 보여주는 예제
+- `int`, `short`, `byte`, `long` 데이터 타입 사용
+- 각 데이터 타입의 값 출력 예시
 
 ## 학습 내용
 
 - Java 기본 문법
+- Java 기본 데이터 타입 (`int`, `short`, `byte`, `long`)
 - 변수와 상수의 차이점
 - `final` 키워드 사용법
+- 패키지 사용법
 - `System.out.println()`을 사용한 출력
 
 ## 요구사항
