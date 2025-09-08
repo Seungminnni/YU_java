@@ -9,7 +9,8 @@ YU_java/
 ├── Practice_01/
 │   ├── Hello.java
 │   ├── Example01.java
-│   └── Datatype01.java
+│   ├── Datatype01.java
+│   └── Datatype02.java
 └── README.md
 ```
 
@@ -29,10 +30,16 @@ YU_java/
 - `int`, `short`, `byte`, `long` 데이터 타입 사용
 - 각 데이터 타입의 값 출력 예시
 
+### Datatype02.java
+- Java 실수형 데이터 타입들을 보여주는 예제
+- `float`와 `double` 데이터 타입 사용
+- 실수 값 출력 예시
+
 ## 학습 내용
 
 - Java 기본 문법
 - Java 기본 데이터 타입 (`int`, `short`, `byte`, `long`)
+- Java 실수형 데이터 타입 (`float`, `double`)
 - 변수와 상수의 차이점
 - `final` 키워드 사용법
 - 패키지 사용법
