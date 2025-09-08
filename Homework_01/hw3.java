@@ -8,6 +8,6 @@ public class hw3 {
         System.out.print("섭씨 온도를 입력하시오: ");
         double celsius = scanner.nextDouble();
         double fahrenheit = (celsius * 9 / 5) + 32;
-        System.out.printf("%.1f\n", fahrenheit);
+        System.out.printf("C= %.1f F= %.1f\n", celsius,fahrenheit);
     }
 }
