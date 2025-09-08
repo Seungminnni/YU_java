@@ -9,5 +9,6 @@ public class hw3 {
         double celsius = scanner.nextDouble();
         double fahrenheit = (celsius * 9 / 5) + 32;
         System.out.printf("C= %.1f F= %.1f\n", celsius,fahrenheit);
+        scanner.close();
     }
 }
