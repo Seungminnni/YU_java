@@ -6,11 +6,9 @@ public class hw8 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("첫번째 과목의 점수를 입력하시오:");
+        System.out.print("세 과목의 점수를 입력하시오 Ex)90 80 70:");
         int s1 = scanner.nextInt();
-        System.out.print("두번째 과목의 점수를 입력하시오:");
         int s2 = scanner.nextInt();
-        System.out.print("세번째 과목의 점수를 입력하시오:");
         int s3 = scanner.nextInt();
 
         double avg = (s1 + s2 + s3) / 3;
