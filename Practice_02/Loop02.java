@@ -19,5 +19,8 @@ public class Loop02 {
         }
         scanner.close();
         System.out.println("모든 숫자를 확인했습니다.");
+
+        
     }
+    
 }
