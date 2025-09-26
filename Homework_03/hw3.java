@@ -1,12 +1,11 @@
 package Homework_03;
 
+import java.util.Scanner;
+
 public class hw3 {
-    public static String parse(String rrn) throws IllegalArgumentException {
-        String result = parse(rrn, false);
-        if (result == null) {
-            throw new IllegalArgumentException("Invalid RRN");
-        }
-        return result;
+    
+    public static String parse(String rrn) {
+        return parse(rrn, false);
     }
     
     public static String parse(String rrn, boolean verbose) {
@@ -39,14 +38,18 @@ public class hw3 {
     }
     
     public static void main(String[] args) {
-        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
-        try {
-            String result = parse(input);
-            System.out.println(result);
-        } catch (IllegalArgumentException e) {
-            String errorDetail = parse(input, true);
-            System.out.println(errorDetail);
+        String result = parse(input);
+        if (result == null) {
+            System.out.println("Invalid");
+        } else {
+            System.out.println("Valid");
+            String[] parts = result.split(", ");
+            String yearPart = parts[0].split(": ")[1];
+            String genderPart = parts[1].split(": ")[1];
+            System.out.println("Year=" + yearPart);
+            System.out.println("Gender=" + genderPart);
         }
         scanner.close();
     }
