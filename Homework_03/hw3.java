@@ -10,30 +10,60 @@ public class hw3 {
     
     public static String parse(String rrn, boolean verbose) {
         if (rrn == null) {
-            return verbose ? "오류: 입력이 null입니다." : null;
+            if (verbose) {
+                return "오류: 입력이 null입니다.";
+            } else {
+                return null;
+            }
         }
         String[] parts = rrn.split("-");
         if (parts.length != 2) {
-            return verbose ? "오류: 하이픈이 하나여야 합니다." : null;
+            if (verbose) {
+                return "오류: 하이픈이 하나여야 합니다.";
+            } else {
+                return null;
+            }
         }
         String front = parts[0];
         String back = parts[1];
         if (front.length() != 6 || back.length() != 7) {
-            return verbose ? "오류: 앞 6자리, 뒤 7자리여야 합니다." : null;
+            if (verbose) {
+                return "오류: 앞 6자리, 뒤 7자리여야 합니다.";
+            } else {
+                return null;
+            }
         }
         String digits = front + back;
         for (char c : digits.toCharArray()) {
             if (!Character.isDigit(c)) {
-                return verbose ? "오류: 숫자만 입력하세요." : null;
+                if (verbose) {
+                    return "오류: 숫자만 입력하세요.";
+                } else {
+                    return null;
+                }
             }
         }
         int year = Integer.parseInt(front.substring(0, 2));
         int genderCode = back.charAt(0) - '0';
         if (genderCode < 1 || genderCode > 4) {
-            return verbose ? "오류: 성별 코드가 1-4여야 합니다." : null;
+            if (verbose) {
+                return "오류: 성별 코드가 1-4여야 합니다.";
+            } else {
+                return null;
+            }
         }
-        int birthYear = (genderCode == 1 || genderCode == 2) ? 1900 + year : 2000 + year;
-        String gender = (genderCode % 2 == 1) ? "남" : "여";
+        int birthYear;
+        if (genderCode == 1 || genderCode == 2) {
+            birthYear = 1900 + year;
+        } else {
+            birthYear = 2000 + year;
+        }
+        String gender;
+        if (genderCode % 2 == 1) {
+            gender = "남";
+        } else {
+            gender = "여";
+        }
         return "출생년도: " + birthYear + ", 성별: " + gender;
     }
     
