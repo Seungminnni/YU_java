@@ -43,6 +43,16 @@ synchronized void consume() {
 	notify();
 
 }
+
+synchronized void reset() {
+	barSize = 0;
+	repaint();
+	notify();
+}
+
+synchronized boolean isFull() {
+	return barSize >= maxBarSize;
+}
 }
 class ConsumerThread extends Thread {
 	MyLabel bar;
@@ -61,6 +71,9 @@ class ConsumerThread extends Thread {
 
 public class TabAndThreadEx extends JFrame{
 	MyLabel bar = new MyLabel(100);
+	JButton restartBtn = new JButton("Restart");
+	JLabel clearLabel = new JLabel("CLEAR!");
+	
 	TabAndThreadEx(String title) {
 		super(title); 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -71,18 +84,39 @@ public class TabAndThreadEx extends JFrame{
 		bar.setSize(300, 20);
 		c.add(bar);
 		
+		clearLabel.setSize(100, 30);
+		clearLabel.setLocation(150, 80);
+		clearLabel.setForeground(Color.RED);
+		clearLabel.setFont(new Font("Arial", Font.BOLD, 20));
+		clearLabel.setVisible(false);
+		c.add(clearLabel);
+		
+		restartBtn.setSize(100, 30);
+		restartBtn.setLocation(125, 120);
+		restartBtn.setVisible(false);
+		restartBtn.addActionListener(e -> {
+			bar.reset();
+			clearLabel.setVisible(false);
+			restartBtn.setVisible(false);
+			c.requestFocus();
+		});
+		c.add(restartBtn);
+		
 		c.addKeyListener(new KeyAdapter() { 
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 					bar.fill();
+					if (bar.isFull()) {
+						clearLabel.setVisible(true);
+						restartBtn.setVisible(true);
+					}
 				}
 			} 
 			});
 		setSize(350,200); 
 		setVisible(true);
 		c.requestFocus(); 
-		ConsumerThread th = new
-		ConsumerThread(bar); 
+		ConsumerThread th = new ConsumerThread(bar); 
 		th.start(); // 스레드 시작
 		}
 
