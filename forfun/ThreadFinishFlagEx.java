@@ -19,7 +19,7 @@ class RandomThread extends Thread {
 		while(true) {
 			int x= (int)(Math.random()*(contentPane.getWidth()-80));
 			int y= (int)(Math.random()*(contentPane.getHeight()-30));
-			String[] texts = {"김형준", "히히힛", "멍충이", "바보"};
+			String[] texts = {"전정웅", "모쏠", "멍충이", "바보"};
 			String randomText = texts[(int)(Math.random() * texts.length)];
 			JLabel label = new JLabel(randomText);
 			label.setSize(200, 100);
