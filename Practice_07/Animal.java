@@ -9,9 +9,14 @@ public class Animal {
         this.name = "이름없음";
     }
     Animal(String name){
+        this();
         this.name = name;
     }
-        void Talk()
+    public static void getCount()
+    {
+        System.out.println("동물의 수: "+Animal.count);
+    }
+    void Talk()
     {
         System.out.println(this.name+"이 말합니다.");
 
