@@ -104,18 +104,24 @@ public class TabAndThreadEx extends JFrame{
 		
 		c.addKeyListener(new KeyAdapter() { 
 			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					bar.fill();
-					if (bar.isFull()) {
-						clearLabel.setVisible(true);
-						restartBtn.setVisible(true);
-					}
+				bar.fill();
+				if (bar.isFull()) {
+					clearLabel.setVisible(true);
+					restartBtn.setVisible(true);
 				}
 			} 
 			});
 		setSize(350,200); 
 		setVisible(true);
-		c.requestFocus(); 
+		
+		// 포커스 확보를 위한 추가 설정
+		addWindowListener(new WindowAdapter() {
+			public void windowActivated(WindowEvent e) {
+				c.requestFocusInWindow();
+			}
+		});
+		
+		c.requestFocusInWindow(); 
 		ConsumerThread th = new ConsumerThread(bar); 
 		th.start(); // 스레드 시작
 		}
