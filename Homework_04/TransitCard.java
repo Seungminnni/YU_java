@@ -32,7 +32,7 @@ public abstract class TransitCard {// 교통카드 추상클래스
         for (DiscountPolicy p : policies) { // 각 정책에 대해 반복, 할인 적용을 위한 반복문, 각 할인 조건에 대해 반복을 하며 그에 대해 현재요금과 다르다면 그것을 적용
             int nf = p.apply(current, t, distanceKm, transfersToday); // nf는 정책 적용 후 요금
             if (nf != current) { // 만약 nf가 현재 요금과 다르다면
-                steps.add("policy applied -> " + nf); // 새로운 정책이 적용되었다고 단계에 추가
+                steps.add(p.getDescription(current, t, distanceKm, transfersToday) + " -> " + nf); // 상세 설명 추가
                 current = nf; // 현재 요금을 nf로 갱신
             }
         }

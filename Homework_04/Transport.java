@@ -11,8 +11,12 @@ public abstract class Transport {
         this.perKmFare = perKmFare; // 거리당 요금은 거리당 요금
     }
 
-    public String getName() { // 이름을 불러오는 매서드
-        return name; // 이름을 반환
+    public int getBaseFare() { // 기본 요금을 불러오는 매서드
+        return baseFare; // 기본 요금 반환
+    }
+
+    public int getPerKmFare() { // 거리당 요금을 불러오는 매서드
+        return perKmFare; // 거리당 요금 반환
     }
 
     public int computeDistanceFare(int distanceKm) { // 거리를 인자로 받는 거리당 요금을 계산하는 매서드

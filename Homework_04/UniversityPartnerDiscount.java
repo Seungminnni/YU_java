@@ -12,4 +12,9 @@ public class UniversityPartnerDiscount implements DiscountPolicy { // 대학 제
         int nf = (int) Math.round(currentFare * rate); // 현재 요금에 할인율을 곱하고 반올림하여 새로운 요금을 계산
         return Math.max(0, nf); // 새로운 요금이 0보다 작아지지 않도록 함
     }
+
+    @Override
+    public String getDescription(int currentFare, Transport t, int distanceKm, int transfersToday) {
+        return "UniversityPartnerDiscount: " + (int)((1 - rate) * 100) + "% 할인 (" + rate + "배 적용)";
+    }
 }

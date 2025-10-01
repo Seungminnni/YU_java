@@ -1,13 +1,13 @@
 package Homework_04;
 
-public class DiscountResult {
-    public final int fare;
-    public final int discountAmount;
-    public final String reason;
+public class DiscountResult { // 할인 결과를 나타내는 클래스
+    public final int fare; // 최종 요금
+    public final int discountAmount; // 할인 금액
+    public final String reason; // 할인 사유
 
-    public DiscountResult(int fare, int discountAmount, String reason) {
-        this.fare = fare;
-        this.discountAmount = discountAmount;
-        this.reason = reason;
+    public DiscountResult(int fare, int discountAmount, String reason) { // 할인 결과 생성자
+        this.fare = fare; // 최종 요금 설정
+        this.discountAmount = discountAmount; // 할인 금액 설정
+        this.reason = reason; // 할인 사유 설정
     }
 }
