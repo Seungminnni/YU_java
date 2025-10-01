@@ -4,25 +4,22 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
-public class Transport_fee {
-    public static void main(String[] args) {
-        Transport bus = new Bus();
-        Transport subway = new Subway();
-        Transport express = new ExpressBus();
+public class Transport_fee { // 최종 실행 클래스
+    public static void main(String[] args) { // 메인 메서드 시작
+        Transport bus = new Bus(); // 버스 교통수단 객체 생성
+        Transport subway = new Subway(); // 지하철 교통수단 객체 생성
+        Transport express = new ExpressBus(); // 고속버스 교통수단 객체 생성
 
-        TransitCard adult = new AdultCard("A1");
-        TransitCard teen = new TeenCard("T1");
-        TransitCard senior = new SeniorCard("S1");
+        TransitCard adult = new AdultCard("A1"); // 성인 교통카드 객체 생성
+        TransitCard teen = new TeenCard("T1"); // 청소년 교통카드 객체 생성
+        TransitCard senior = new SeniorCard("S1"); // 노인 교통카드 객체 생성
 
-        // add policies
         teen.addPolicy(new TransferDiscount(200)); // 환승할인 200원
         adult.addPolicy(new TransferDiscount(200)); // 환승할인 200원
         // university partner discount for adult (simulate partner)
         adult.addPolicy(new UniversityPartnerDiscount(0.9)); // 대학생 할인 10%
 
-        FareCalculator calc = new FareCalculator();
-
-        // --- existing individual demos ---
+        FareCalculator calc = new FareCalculator(); // 요금 계산기 객체 생성
 
 
         // --- New: demonstrate List<TransitCard> with same ride parameters ---
