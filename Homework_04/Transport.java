@@ -1,6 +1,6 @@
 package Homework_04;
 
-public abstract class Transport {
+public abstract class Transport { // 추상 클래스
     protected final String name; // 이름
     protected final int baseFare; // 기본 요금, 원단위,
     protected final int perKmFare; // 거리당 요금, 원/km ''
