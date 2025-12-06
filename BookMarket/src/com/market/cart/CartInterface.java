@@ -9,6 +9,8 @@ public interface CartInterface {
 	boolean isCartInBook(String id);
 
 	void insertBook(Book p);
+	void insertBook(Book p, int qty);
+	boolean addQuantityToExisting(String bookId, int qty);
 
 	void removeCart(int numId);
 

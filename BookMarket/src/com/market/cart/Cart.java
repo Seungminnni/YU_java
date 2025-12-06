@@ -28,7 +28,13 @@ public class Cart implements CartInterface {
 	}
 
 	public void insertBook(Book book) {
+		insertBook(book, 1);
+		mCartCount = mCartItem.size();
+	}
+
+	public void insertBook(Book book, int qty) {
 		CartItem bookitem = new CartItem(book);
+		bookitem.setQuantity(qty);
 		mCartItem.add(bookitem);
 		mCartCount = mCartItem.size();
 	}
@@ -63,6 +69,17 @@ public class Cart implements CartInterface {
 			}
 		}
 		return flag;
+	}
+
+	public boolean addQuantityToExisting(String bookId, int qty) {
+		for (int i = 0; i < mCartItem.size(); i++) {
+			if (bookId.equals(mCartItem.get(i).getBookID())) {
+				int newQty = mCartItem.get(i).getQuantity() + qty;
+				mCartItem.get(i).setQuantity(newQty);
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public void removeCart(int numId) {

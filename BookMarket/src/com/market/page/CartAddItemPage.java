@@ -8,6 +8,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.JSpinner;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -86,10 +88,15 @@ public class CartAddItemPage extends JPanel {
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBounds(0, 400, 1000, 400);
 		add(buttonPanel);
-		JLabel buttonLabel = new JLabel("장바구니에 담기");
-		buttonLabel.setFont(ft);
-		JButton addButton = new JButton();
-		addButton.add(buttonLabel);
+		SpinnerNumberModel spinnerModel = new SpinnerNumberModel(1, 1, 99, 1);
+		JSpinner qtySpinner = new JSpinner(spinnerModel);
+		qtySpinner.setPreferredSize(new Dimension(80, qtySpinner.getPreferredSize().height));
+		qtySpinner.setFont(ft);
+		buttonPanel.add(new JLabel("수량:"));
+		buttonPanel.add(qtySpinner);
+		JButton addButton = new JButton("장바구니에 담기");
+		addButton.setFont(ft);
+		addButton.setPreferredSize(new Dimension(addButton.getPreferredSize().width + 10, addButton.getPreferredSize().height));
 		buttonPanel.add(addButton);
 
 		bookTable.addMouseListener(new MouseListener() {
@@ -133,19 +140,21 @@ public class CartAddItemPage extends JPanel {
 
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				ArrayList<Book> booklist = BookInIt.getmBookList();
 				int select = JOptionPane.showConfirmDialog(addButton, "장바구니에 추가하겠습니까?");
 				if (select == 0) {
-						int numId = mSelectRow;
-						if (numId < 0 || numId >= booklist.size()) {
-							JOptionPane.showMessageDialog(addButton, "유효한 항목을 선택하세요.");
-							return;
-						}
-					if (!isCartInBook(booklist.get(numId).getBookId())) {
-						mCart.insertBook(booklist.get(numId));
+					int numId = mSelectRow;
+					if (numId < 0 || numId >= booklist.size()) {
+						JOptionPane.showMessageDialog(addButton, "유효한 항목을 선택하세요.");
+						return;
 					}
-					JOptionPane.showMessageDialog(addButton, "추가했습니다");
+					int qty = (Integer) qtySpinner.getValue();
+					Book chosen = booklist.get(numId);
+					boolean updated = mCart.addQuantityToExisting(chosen.getBookId(), qty);
+					if (!updated) {
+						mCart.insertBook(chosen, qty);
+					}
+					JOptionPane.showMessageDialog(addButton, "추가했습니다 (수량: " + qty + ")");
 				}
 			}
 		});
