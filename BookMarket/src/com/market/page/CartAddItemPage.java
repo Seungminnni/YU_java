@@ -32,7 +32,7 @@ public class CartAddItemPage extends JPanel {
 
 		JPanel imagePanel = new JPanel();
 		imagePanel.setBounds(20, 0, 300, 400);
-		imageBook = new ImageIcon("./images/ISBN1234.jpg");
+		imageBook = new ImageIcon("BookMarket/images/ISBN1234.jpg");
 		imageBook.setImage(imageBook.getImage().getScaledInstance(250, 300, Image.SCALE_DEFAULT));
 		JLabel label = new JLabel(imageBook);
 		imagePanel.add(label);
@@ -101,7 +101,7 @@ public class CartAddItemPage extends JPanel {
 				Object value = bookTable.getValueAt(row, 0);
 				String str = value + ".jpg";
 
-				imageBook = new ImageIcon("./images/" + str);
+				imageBook = new ImageIcon("BookMarket/images/" + str);
 				imageBook.setImage(imageBook.getImage().getScaledInstance(250, 300, Image.SCALE_DEFAULT));
 				JLabel label = new JLabel(imageBook);
 				imagePanel.removeAll();
